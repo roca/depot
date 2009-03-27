@@ -14,7 +14,7 @@
     <span class="price"><%= number_to_currency(product.price) %></span>
     <!-- START_HIGHLIGHT -->
     <!-- START:add_to_cart -->
-    <%= button_to "Add to Cart" %>
+    <%= button_to "Add to Cart" , :action => 'add_to_cart', :id => product %>
     <!-- END:add_to_cart -->
     <!-- END_HIGHLIGHT -->
     </div>
