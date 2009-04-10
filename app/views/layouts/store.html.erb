@@ -2,34 +2,37 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<%= javascript_include_tag "prototype.js" %>
-
-
   <title>Pragprog Books Online Store</title>
- 
-
 <!-- START:stylesheet -->
-  <%= stylesheet_link_tag "depot", :media => "all" %><!-- <label id="code.slt"/> -->
+  <%= stylesheet_link_tag "depot", :media => "all" %>
 <!-- END:stylesheet -->
 </head>
 <body id="store">
   <div id="banner">
     <%= image_tag("logo.png") %>
-    <%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> -->
+    <%= @page_title || "Pragmatic Bookshelf" %>
   </div>
   <div id="columns">
     <div id="side">
+      <!-- START_HIGHLIGHT -->
+      <div id="cart">
+        <%= render(:partial => "cart", :object => @cart) %>
+      </div>
+      <!-- END_HIGHLIGHT -->
+
       <a href="http://www....">Home</a><br />
       <a href="http://www..../faq">Questions</a><br />
       <a href="http://www..../news">News</a><br />
       <a href="http://www..../contact">Contact</a><br />
-      <%= chatty_time_and_date %>
     </div>
     <div id="main">
+      <!-- START:flash -->
       <% if flash[:notice] -%>
         <div id="notice"><%= flash[:notice] %></div>
       <% end -%>
-      <%= yield :layout %><!-- <label id="code.depot.e.include"/> -->
+      <!-- END:flash -->
+
+      <%= yield :layout %>
     </div>
   </div>
 </body>
