@@ -5447,3 +5447,13 @@ Rendering store/index
 Rendered store/_cart_item (0.0ms)
 Rendered store/_cart (0.0ms)
 Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-10 16:40:42) [GET]
+  Session ID: 360451460ae1074342e09ba27243ab0b
+  [4;36;1mProduct Load (31.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 94ms (View: 63, DB: 155) | 200 OK [http://localhost/store]
