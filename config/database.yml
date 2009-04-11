@@ -20,7 +20,7 @@ development:
   database: depot_development
   pool: 5
   username: root
-  password: user
+  password: cam4438
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -32,7 +32,7 @@ test:
   database: depot_test
   pool: 5
   username: root
-  password: user
+  password: cam4438
   host: localhost
 
 production:
@@ -41,6 +41,6 @@ production:
   database: depot_production
   pool: 5
   username: root
-  password: user
+  password: cam4438
   host: localhost
 

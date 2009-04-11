@@ -5457,3 +5457,355 @@ Rendering store/index
   [4;35;1mProduct Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
 Rendered store/_cart (0.0ms)
 Completed in 94ms (View: 63, DB: 155) | 200 OK [http://localhost/store]
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (265.0ms)[0m   [0mCREATE TABLE `products` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `description` text, `image_url` varchar(255), `price` decimal(8,2) DEFAULT 0.0) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (188.0ms)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (375.0ms)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;35;1mSQL (297.0ms)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (125.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (469.0ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (94.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090327155841')[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090303212350')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090311191653')[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20090320194401')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090303212350)
+Migrating to AddPriceToProduct (20090311191653)
+Migrating to AddTestData (20090320194401)
+Migrating to CreateSessions (20090327155841)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (62.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (78.0ms)[0m   [0;1mdescribe `products`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW KEYS FROM `products`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSessions (20090327155841)
+  [4;36;1mSQL (62.0ms)[0m   [0;1mDROP TABLE `sessions`[0m
+  [4;35;1mSQL (156.0ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20090327155841'[0m
+Migrating to AddTestData (20090320194401)
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM `products` [0m
+  [4;35;1mSQL (62.0ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20090320194401'[0m
+Migrating to AddPriceToProduct (20090311191653)
+  [4;36;1mSQL (265.0ms)[0m   [0;1mALTER TABLE `products` DROP `price`[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20090311191653'[0m
+Migrating to CreateProducts (20090303212350)
+  [4;36;1mSQL (47.0ms)[0m   [0;1mDROP TABLE `products`[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20090303212350'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090303212350)
+  [4;36;1mSQL (140.0ms)[0m   [0;1mCREATE TABLE `products` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `description` text, `image_url` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (63.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090303212350')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mdescribe `products`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `products`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090303212350)
+Migrating to AddPriceToProduct (20090311191653)
+  [4;36;1mSQL (359.0ms)[0m   [0;1mALTER TABLE `products` ADD `price` decimal(8,2) DEFAULT 0[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090311191653')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mdescribe `products`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSHOW KEYS FROM `products`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090303212350)
+Migrating to AddPriceToProduct (20090311191653)
+Migrating to AddTestData (20090320194401)
+  [4;36;1mProduct Delete all (0.0ms)[0m   [0;1mDELETE FROM `products` [0m
+  [4;35;1mProduct Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mProduct Exists (78.0ms)[0m   [0mSELECT `products`.id FROM `products` WHERE (`products`.`title` = BINARY 'Pragmatic Version Control') LIMIT 1[0m
+  [4;36;1mProduct Create (16.0ms)[0m   [0;1mINSERT INTO `products` (`image_url`, `title`, `price`, `description`) VALUES('/images/svn.jpg', 'Pragmatic Version Control', 28.5, '<p>\nThis book is a recipe-based approach to using Subversion that will\nget you up and running quickly---and correctly. All projects need\nversion control: it\'s a foundational piece of any project\' s\ninfrastructure. Yet half of all project teams in the U.S. don\'t use\nany version control at all. Many others don\'t use it well, and end\nup experiencing time-consuming problems.\n</p>')[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (63.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090320194401')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mdescribe `products`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `products`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090303212350)
+Migrating to AddPriceToProduct (20090311191653)
+Migrating to AddTestData (20090320194401)
+Migrating to CreateSessions (20090327155841)
+  [4;36;1mSQL (141.0ms)[0m   [0;1mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (343.0ms)[0m   [0mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;36;1mSQL (328.0ms)[0m   [0;1mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090327155841')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mdescribe `products`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW KEYS FROM `products`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-10 20:49:58) [GET]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+
+
+ActionController::RoutingError (No route matches "/stores" with {:method=>:get}):
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:76:in `process'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/../lib/mongrel/rails.rb:74:in `process'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:159:in `process_client'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:158:in `process_client'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `initialize'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `new'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:285:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `initialize'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `new'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel.rb:268:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:282:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:281:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/configurator.rb:281:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:128:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/lib/mongrel/command.rb:212:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5-x86-mswin32-60/bin/mongrel_rails:281
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-10 20:50:11) [GET]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  [4;36;1mProduct Load (46.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (32.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 359ms (View: 281, DB: 46) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-10 20:50:17) [POST]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"04f6d41218d13b098c47119dcb1fa800c280549e", "id"=>"1"}
+  [4;36;1mProduct Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (16.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (15.0ms)
+Rendered store/_cart (31.0ms)
+Completed in 125ms (View: 63, DB: 47) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-10 20:50:18) [POST]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"04f6d41218d13b098c47119dcb1fa800c280549e", "id"=>"1"}
+  [4;36;1mProduct Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (31.0ms)
+Rendered store/_cart (31.0ms)
+Completed in 78ms (View: 63, DB: 31) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-10 20:50:19) [POST]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"04f6d41218d13b098c47119dcb1fa800c280549e", "id"=>"1"}
+  [4;36;1mProduct Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (31.0ms)
+Rendered store/_cart (31.0ms)
+Completed in 93ms (View: 47, DB: 47) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-10 20:50:24) [POST]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"04f6d41218d13b098c47119dcb1fa800c280549e", "id"=>"1"}
+  [4;36;1mProduct Columns (32.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (16.0ms)
+Rendered store/_cart (32.0ms)
+Completed in 94ms (View: 62, DB: 32) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-10 20:50:25) [POST]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"04f6d41218d13b098c47119dcb1fa800c280549e", "id"=>"1"}
+  [4;36;1mProduct Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (32.0ms)
+Rendered store/_cart (32.0ms)
+Completed in 78ms (View: 47, DB: 15) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-10 20:50:25) [POST]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"04f6d41218d13b098c47119dcb1fa800c280549e", "id"=>"1"}
+  [4;36;1mProduct Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (31.0ms)
+Rendered store/_cart (46.0ms)
+Completed in 78ms (View: 62, DB: 16) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-10 20:50:30) [POST]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"04f6d41218d13b098c47119dcb1fa800c280549e", "id"=>"1"}
+  [4;36;1mProduct Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (31.0ms)
+Rendered store/_cart (47.0ms)
+Completed in 110ms (View: 79, DB: 0) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#empty_cart (for 127.0.0.1 at 2009-04-10 20:50:33) [POST]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  Parameters: {"authenticity_token"=>"04f6d41218d13b098c47119dcb1fa800c280549e"}
+Redirected to actionindex
+Completed in 0ms (DB: 16) | 302 Found [http://localhost/store/empty_cart]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-10 20:50:33) [GET]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 3281ms (View: 94, DB: 15) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-10 20:50:42) [GET]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 156ms (View: 125, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-10 20:50:43) [GET]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 94ms (View: 78, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-10 20:50:48) [GET]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 110ms (View: 94, DB: 0) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-10 20:50:50) [GET]
+  Session ID: 8bb032b5e4cca940561380b445ee4ce8
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 93ms (View: 78, DB: 0) | 200 OK [http://localhost/store]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActionController::Base#index (for 127.0.0.1 at 2009-04-10 20:56:06) [GET]
+
+NameError (uninitialized constant ApplicationController):
+  app/controllers/store_controller.rb:9
+
+Rendered rescues/_trace (250.0ms)
+Rendered rescues/_request_and_response (16.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-10 20:57:12) [GET]
+  Session ID: dbc0f012f8fba70059e59657346dfa3a
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (47.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 141ms (View: 110, DB: 31) | 200 OK [http://localhost/store]
