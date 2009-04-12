@@ -23,25 +23,47 @@ class StoreController < ApplicationController
   def add_to_cart
     product = Product.find(params[:id])
     @cart = find_cart
-    @cart.add_product(product)
+    @current_item = @cart.add_product(product)
     session[:counter] = nil
 
     respond_to do |format|
-      format.js
+      format.js if request.xhr?
+      format.html {redirect_to_index}   
     end
+    
    rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to access invalid product #{params[:id]}")
     redirect_to_index("Invalid product")
   end
   
 
+def remove_from_cart
+    begin
+      product = Product.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access invalid product #{params[:id]}" )
+      redirect_to_index("Invalid product")
+    else
+      @cart = find_cart
+      @current_item = @cart.remove_product(product)
+      respond_to do |format|
+        format.js if request.xhr?
+        format.html { redirect_to_index("One #{product.title} was removed") }
+      end
+    end
+  end
 
   
   def empty_cart
     session[:cart] = nil
+     @cart = find_cart
+
+    respond_to do |format|
+      format.js if request.xhr?
+      format.html {redirect_to_index}   
+    end
     
-    redirect_to_index("Your cart is currently empty")
-  end
+   end
   
 
 private

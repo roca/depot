@@ -1,7 +1,19 @@
+<% if cart_item == @current_item %>
+<tr id="current_item">
+<% else %>
 <tr>
-  <td><%= cart_item.quantity %>&times;</td>
+<% end %>  <td><%= cart_item.quantity %>&times;</td>
   <td><%=h cart_item.title %></td>
   <td class="item-price"><%= number_to_currency(cart_item.price) %></td>
 
   
+
+
+<td>
+  <% form_remote_tag :url => { :action => ((@cart.items.length == 1 and cart_item.quantity == 1) ? :empty_cart : :remove_from_cart), :id => cart_item.product } do %>
+    <%= submit_tag "D" %>
+  <% end %>
+</td>
+
 </tr>
+

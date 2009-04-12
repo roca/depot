@@ -16,9 +16,9 @@
   <div id="columns">
     <div id="side">
       <!-- START_HIGHLIGHT -->
-      <div id="cart">
-        <%= render(:partial => "cart", :object => @cart) %>
-      </div>
+      <% hidden_div_if(@cart.items.empty?, :id => "cart" ) do %>
+         <%= render(:partial => "cart" , :object => @cart) %>
+      <% end %>
       <!-- END_HIGHLIGHT -->
 
       <a href="http://www....">Home</a><br />
