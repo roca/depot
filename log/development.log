@@ -6321,3 +6321,141 @@ Processing StoreController#empty_cart (for 127.0.0.1 at 2009-04-11 20:46:17) [PO
   Parameters: {"commit"=>"D", "authenticity_token"=>"e7f471eda5884fba11f9c4772869961e244e6d08", "id"=>"1"}
 Rendering store/empty_cart
 Completed in 0ms (View: 0, DB: 0) | 200 OK [http://localhost/store/empty_cart/1]
+  [4;36;1mSQL (219.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (156.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (235.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateProducts (20090303212350)
+Migrating to AddPriceToProduct (20090311191653)
+Migrating to AddTestData (20090320194401)
+Migrating to CreateSessions (20090327155841)
+Migrating to CreateOrders (20090413080513)
+  [4;36;1mSQL (313.0ms)[0m   [0;1mCREATE TABLE `orders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `address` text, `email` varchar(255), `pay_type` varchar(10), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090413080513')[0m
+Migrating to CreateLineItems (20090413081552)
+  [4;36;1mSQL (172.0ms)[0m   [0;1mCREATE TABLE `line_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `product_id` int(11) NOT NULL, `order_id` int(11) NOT NULL, `quantity` int(11) NOT NULL, `total_price` decimal(8,2) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (62.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090413081552')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (62.0ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mdescribe `line_items`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW KEYS FROM `line_items`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mdescribe `orders`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `orders`[0m
+  [4;35;1mSQL (93.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mdescribe `products`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `products`[0m
+  [4;36;1mSQL (78.0ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-14 20:24:50) [GET]
+  Session ID: 54fe9bff516ec7d5b6a8560f02e6d06b
+  [4;36;1mProduct Load (187.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (16.0ms)
+Completed in 516ms (View: 219, DB: 719) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-14 20:24:56) [POST]
+  Session ID: 54fe9bff516ec7d5b6a8560f02e6d06b
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"9647dce24578aa722853a747730e3506a2e651ad", "id"=>"1"}
+  [4;36;1mProduct Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (63.0ms)
+Rendered store/_cart (63.0ms)
+Completed in 157ms (View: 125, DB: 47) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-04-14 20:25:00) [POST]
+  Session ID: 54fe9bff516ec7d5b6a8560f02e6d06b
+  Parameters: {"authenticity_token"=>"9647dce24578aa722853a747730e3506a2e651ad"}
+  [4;36;1mOrder Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+Rendering template within layouts/store
+Rendering store/checkout
+  [4;35;1mProduct Columns (62.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart_item (109.0ms)
+Rendered store/_cart (125.0ms)
+Completed in 266ms (View: 203, DB: 47) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-15 04:17:59) [GET]
+  Session ID: 7a02d35bfe91a0bdd2fcf30788f7f3e0
+  [4;36;1mProduct Load (31.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (0.0ms)
+Completed in 203ms (View: 125, DB: 62) | 200 OK [http://localhost/store]
+
+
+Processing StoreController#add_to_cart (for 127.0.0.1 at 2009-04-15 04:18:02) [POST]
+  Session ID: 7a02d35bfe91a0bdd2fcf30788f7f3e0
+  Parameters: {"commit"=>"Add to Cart", "authenticity_token"=>"0c8350d79591850bdbf6de4edeefd6414a3a48e2", "id"=>"1"}
+  [4;36;1mProduct Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT * FROM `products` WHERE (`products`.`id` = 1) [0m
+Rendering store/add_to_cart
+Rendered store/_cart_item (156.0ms)
+Rendered store/_cart (219.0ms)
+Completed in 281ms (View: 250, DB: 16) | 200 OK [http://localhost/store/add_to_cart/1]
+
+
+Processing StoreController#checkout (for 127.0.0.1 at 2009-04-15 04:18:05) [POST]
+  Session ID: 7a02d35bfe91a0bdd2fcf30788f7f3e0
+  Parameters: {"authenticity_token"=>"0c8350d79591850bdbf6de4edeefd6414a3a48e2"}
+  [4;36;1mOrder Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+Rendering template within layouts/store
+Rendering store/checkout
+  [4;35;1mProduct Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart_item (31.0ms)
+Rendered store/_cart (31.0ms)
+Completed in 109ms (View: 78, DB: 32) | 200 OK [http://localhost/store/checkout]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2009-04-15 04:18:24) [POST]
+  Session ID: 7a02d35bfe91a0bdd2fcf30788f7f3e0
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"", "pay_type"=>"", "address"=>"", "email"=>""}, "authenticity_token"=>"0c8350d79591850bdbf6de4edeefd6414a3a48e2"}
+  [4;36;1mOrder Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mLineItem Columns (62.0ms)[0m   [0mSHOW FIELDS FROM `line_items`[0m
+  [4;36;1mProduct Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `products`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/store
+Rendering store/checkout
+Rendered store/_cart_item (0.0ms)
+Rendered store/_cart (16.0ms)
+Completed in 188ms (View: 47, DB: 62) | 200 OK [http://localhost/store/save_order]
+
+
+Processing StoreController#save_order (for 127.0.0.1 at 2009-04-15 04:18:59) [POST]
+  Session ID: 7a02d35bfe91a0bdd2fcf30788f7f3e0
+  Parameters: {"commit"=>"Place Order", "order"=>{"name"=>"Romel Campbell", "pay_type"=>"check", "address"=>"Harlem, USA", "email"=>"roca@lundbeck.com"}, "authenticity_token"=>"0c8350d79591850bdbf6de4edeefd6414a3a48e2"}
+  [4;35;1mOrder Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mLineItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `line_items`[0m
+  [4;35;1mProduct Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mOrder Create (0.0ms)[0m   [0mINSERT INTO `orders` (`name`, `updated_at`, `pay_type`, `address`, `email`, `created_at`) VALUES('Romel Campbell', '2009-04-15 08:18:59', 'check', 'Harlem, USA', 'roca@lundbeck.com', '2009-04-15 08:18:59')[0m
+  [4;36;1mLineItem Create (0.0ms)[0m   [0;1mINSERT INTO `line_items` (`order_id`, `updated_at`, `total_price`, `product_id`, `quantity`, `created_at`) VALUES(1, '2009-04-15 08:18:59', 28.5, 1, 1, '2009-04-15 08:18:59')[0m
+  [4;35;1mSQL (63.0ms)[0m   [0mCOMMIT[0m
+Redirected to actionindex
+Completed in 235ms (DB: 94) | 302 Found [http://localhost/store/save_order]
+
+
+Processing StoreController#index (for 127.0.0.1 at 2009-04-15 04:18:59) [GET]
+  Session ID: 7a02d35bfe91a0bdd2fcf30788f7f3e0
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM `products` ORDER BY title[0m
+Rendering template within layouts/store
+Rendering store/index
+  [4;35;1mProduct Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `products`[0m
+Rendered store/_cart (15.0ms)
+Completed in 109ms (View: 78, DB: 0) | 200 OK [http://localhost/store]
