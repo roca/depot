@@ -76,7 +76,10 @@ def save_order
     end
     
    end
-  
+
+ def cancel_order
+  redirect_to_index("You have cancelled your order")
+end
   def checkout
     @cart = find_cart
     if @cart.items.empty?

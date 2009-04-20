@@ -11,9 +11,13 @@
 
 
   
-  <%= button_to "Checkout" , :action => 'checkout' %>
+  <%= button_to "Checkout", {:action => 'checkout'}, :disabled => !@order.nil? %>
 
-<% form_remote_tag :url => { :action => :empty_cart } do %>
-  <%= submit_tag "Empty cart" %>
-<% end %>
+  <% if @order %>
+    <%= button_to "Cancel Order", :action => 'cancel_order' %>
+  <% else %>
+      <% form_remote_tag :url => { :action => :empty_cart } do %>
+        <%= submit_tag "Empty cart" %>
+      <% end %>
+  <% end %>
 
