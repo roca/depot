@@ -6,6 +6,7 @@
     <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
       <td>
+        <!-- image_url is nolonger needed just the name of the image file rails 3.1 -->
         <%= image_tag(product.image_url, :class => 'list_image') %>
       </td>
 
