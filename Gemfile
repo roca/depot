@@ -8,6 +8,7 @@ gem 'rails', '3.1.0.beta1'
 gem 'sqlite3'
 
 # Asset template engines
+gem 'haml' ,'~>3.0.25'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
@@ -26,4 +27,8 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'ZenTest', '4.1.4'
+  gem 'autotest-growl'
+  gem 'autotest-fsevent'
+  gem 'autotest-rails', '4.1.0'
 end

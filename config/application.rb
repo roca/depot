@@ -46,7 +46,7 @@ module Depot
 
     # Enable IdentityMap for Active Record, to disable set to false or remove the line below.
     config.active_record.identity_map = true
-
+    ActiveRecord::IdentityMap.enabled = true
     # Enable the asset pipeline
     config.assets.enabled = true
   end
