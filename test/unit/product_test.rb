@@ -59,6 +59,6 @@ class ProductTest < ActiveSupport::TestCase
                           :image_url   => "fred.gif")
 
     assert !product.save
-    assert_equal "has already been taken", product.errors[:title].join('; ')
+    assert_equal I18n.translate("activerecord.errors.messages.taken"), product.errors[:title].join('; ')
   end  
 end

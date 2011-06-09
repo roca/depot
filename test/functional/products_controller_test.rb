@@ -17,6 +17,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should create product" do
+    @product.title = "Different title" # There is a unique constrain on title
     assert_difference('Product.count') do
       post :create, product: @product.attributes
     end
