@@ -1,0 +1,22 @@
+%html
+  %head
+    %title Pragprog Books Online Store
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+    = csrf_meta_tags
+  %body#store
+    #banner
+      = image_tag("logo.png")
+      = @page_title || "Pragmatic Bookshelf"
+    #columns
+      #side
+        %a{:href => "http://www...."} Home
+        %br
+        %a{:href => "http://www..../faq"} Questions
+        %br
+        %a{:href => "http://www..../news"} News
+        %br
+        %a{:href => "http://www..../contact"} Contact
+        %br
+    #main
+      = yield
