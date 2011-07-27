@@ -1,9 +1,20 @@
-%h2
-  Your Pragmatic Cart
-%ul
+.cart_title Your Cart
+%table
   - @cart.line_items.each do |item|
-    %li
-      = item.quantity
-      &times;
-      = item.product.title
+    %tr
+      %td
+        = item.quantity
+        &times;
+      %td
+        = item.product.title
+      %td.item_price
+        = number_to_currency(item.total_price)
+        
+  %tr.total_line
+    %td{:colspan=>2}
+      Total
+    %td.total_cell
+      = number_to_currency(@cart.total_price)
+        
+= button_to 'Empty cart', @cart, :method => :delete, :confirm => 'Are you sure?'
     

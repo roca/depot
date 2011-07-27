@@ -10,7 +10,7 @@
       = @page_title || "Pragmatic Bookshelf"
     #columns
       #side
-        %a{:href => "http://www...."} Home
+        = link_to 'Home',store_path 
         %br
         %a{:href => "http://www..../faq"} Questions
         %br
@@ -18,5 +18,7 @@
         %br
         %a{:href => "http://www..../contact"} Contact
         %br
+        - if session[:cart_id]
+          = link_to 'Your Cart', cart_path(session[:cart_id])
     #main
       = yield
