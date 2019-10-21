@@ -8,7 +8,7 @@ gem 'rails', '3.1.0.beta1'
 gem 'sqlite3'
 
 # Asset template engines
-gem 'haml' ,'~>3.0.25'
+gem 'haml' ,'~>5.0.0'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
